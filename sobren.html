@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Revalida Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #fafbfc;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a3a52;
+            --text-secondary: #4a5568;
+            --accent-primary: #1a5f7a;
+            --accent-secondary: #26a69a;
+            --header-gradient: linear-gradient(135deg, #0d3d56 0%, #1a5f7a 50%, #2d8ba8 100%);
+            --hero-gradient: linear-gradient(135deg, #0d3d56 0%, #1a5f7a 40%, #2d8ba8 70%, #3fa9c3 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: #e2e8f0;
+            --footer-bg: linear-gradient(135deg, #0d3d56 0%, #1a3a52 100%);
+            --shadow-color: rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #2dd4bf;
+            --header-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            --hero-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 70%, #475569 100%);
+            --card-bg: rgba(30, 41, 59, 0.95);
+            --card-border: #334155;
+            --footer-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'DM Serif Display', sans-serif;
+            font-size: 16px;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            background: var(--header-gradient);
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #1a5f7a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+        }
+
+        .logo-text {
+            color: white;
+            font-family: 'Teko', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .sun-icon, .moon-icon {
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: block;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: none;
+        }
+
+        [data-theme="light"] .sun-icon,
+        :root:not([data-theme]) .sun-icon {
+            display: none;
+        }
+
+        [data-theme="light"] .moon-icon,
+        :root:not([data-theme]) .moon-icon {
+            display: block;
+        }
+
+        .page-hero {
+            background: var(--hero-gradient);
+            color: white;
+            padding: 5rem 3rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero h1 {
+            font-family: 'Teko', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .professor-section {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin: 6rem 0;
+            position: relative;
+        }
+
+        .professor-section.reverse {
+            grid-template-columns: 1fr 400px;
+        }
+
+        .professor-image-container {
+            position: sticky;
+            top: 120px;
+        }
+
+        .professor-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .professor-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+
+        .professor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .professor-content {
+            background: var(--bg-secondary);
+            padding: 4rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px var(--shadow-color);
+            transition: all 0.3s;
+        }
+
+        .professor-content:hover {
+            box-shadow: 0 15px 50px var(--shadow-color);
+        }
+
+        .professor-content h2 {
+            font-family: 'Teko', serif;
+            color: var(--accent-primary);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .professor-content h3 {
+            color: var(--accent-secondary);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .professor-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .professor-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .professor-content li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .professor-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .highlight {
+            color: var(--accent-secondary);
+            font-weight: 700;
+        }
+
+        .contact-form-section {
+            background: var(--bg-secondary);
+            padding: 5rem 3rem;
+            margin: 6rem 0;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px var(--shadow-color);
+        }
+
+        .contact-form-section h2 {
+            font-family: 'Teko', serif;
+            color: var(--accent-primary);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1.2rem;
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(38, 166, 154, 0.4);
+            justify-self: center;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(38, 166, 154, 0.6);
+            background: linear-gradient(135deg, #1d8b80 0%, #26a69a 100%);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 4rem 3rem 2rem;
+            margin-top: 8rem;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-secondary);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+            margin-bottom: 0;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-3px) translateX(0);
+        }
+
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #cbd5e0;
+            font-size: 0.95rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--header-gradient);
+            z-index: 999;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.3rem;
+            padding: 1rem;
+            display: block;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 1024px) {
+            .professor-section,
+            .professor-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .professor-image-container {
+                position: relative;
+                top: 0;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-right > ul {
+                display: none !important;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .page-hero {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 0 1.5rem;
+            }
+
+            .professor-section {
+                margin: 3rem 0;
+            }
+
+            .professor-content {
+                padding: 2rem;
+            }
+
+            .professor-content h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-section {
+                padding: 3rem 1.5rem;
+                margin: 3rem 0;
+            }
+
+            .contact-form-section h2 {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 2.5rem 1rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-placeholder {
+                width: 45px;
+                height: 45px;
+                font-size: 0.6rem;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .page-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .page-hero p {
+                font-size: 0.95rem;
+            }
+
+            .professor-content {
+                padding: 1.5rem;
+            }
+
+            .professor-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .professor-content p {
+                font-size: 0.95rem;
+            }
+
+            .contact-form-section {
+                padding: 2rem 1rem;
+            }
+
+            .contact-form-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .submit-btn {
+                padding: 1.2rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+            }
+
+            .theme-toggle svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+    <div class="logo-container">
+            <img class="logo-placeholder" src="assets/LOGO.jpeg" alt="">
+    <span class="logo-text">REVALIDA EXPERT</span>
+    </div>
+    <div class="nav-right">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul>
+            <li><a href="inicio.html">Início</a></li>
+            <li><a href="sobren.html">Sobre Nós</a></li>
+            <li><a href="sobrel.html">Sobre o Livro</a></li>
+            <li><a href="sobrec.html">Sobre o Curso</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+            <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm1-4V2h-2v3h2zm0 17v-3h-2v3h2zM5.99 4.58l-1.41 1.41 2.12 2.12 1.41-1.41-2.12-2.12zm12.02 12.02l-1.41 1.41 2.12 2.12 1.41-1.41-2.12-2.12zM2 13h3v-2H2v2zm19 0h-3v-2h3v2zM5.99 19.42l2.12-2.12-1.41-1.41-2.12 2.12 1.41 1.41zM18.01 4.58l-2.12 2.12 1.41 1.41 2.12-2.12-1.41-1.41z"/>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+            </svg>
+        </button>
+    </div>
+</nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="inicio.html" onclick="toggleMenu()">Início</a></li>
+        <li><a href="sobren.html" onclick="toggleMenu()">Sobre Nós</a></li>
+        <li><a href="sobrel.html" onclick="toggleMenu()">Sobre o Livro</a></li>
+        <li><a href="sobrec.html" onclick="toggleMenu()">Sobre o Curso</a></li>
+        <li><a href="contato.html" onclick="toggleMenu()">Contato</a></li>
+    </ul>
+</div>
+
+    <section class="page-hero">
+        <h1>NOSSA EQUIPE</h1>
+        <p>Conheça as especialistas que vão guiar você rumo à aprovação no REVALIDA</p>
+    </section>
+
+    <main class="content-section">
+        <!-- Dra. Valéria Wakim -->
+        <div class="professor-section">
+            <div class="professor-image-container">
+                <div class="professor-image">
+                   <img src="assets/Foto valeria.png" alt="">
+                </div>
+            </div>
+            <div class="professor-content">
+                <h2>Dra. Valéria Wakim</h2>
+                <p>
+                    Sou a Dra. Valéria Wakim, pediatra e professora com 20 anos de experiência, e estou comprometida em ajudá-lo a alcançar seus objetivos. Com uma formação sólida e uma equipe dedicada, garanto que você esteja pronto para enfrentar o desafio da residência médica.
+                </p>
+                <p>
+                    Aqui você encontra uma proposta diferenciada de preparação, com métodos inovadores e uma equipe de profissionais dedicados a ajudar você a alcançar o seu objetivo. Bem-vindo ao nosso site de treinamento para estudantes de medicina!
+                </p>
+                <p>
+                    Formada em medicina pela <span class="highlight">Universidade Estadual do Rio de Janeiro (UERJ)</span> e pós-graduada em alergologia e imunologia pela <span class="highlight">Universidade Federal do Rio de Janeiro (UFRJ)</span>, com 20 anos de docente e prática de laboratórios de simulação realística, tenho as habilidades acadêmicas para seu treinamento para a prova prática do REVALIDA e para acesso à residência médica que tanto espera!
+                </p>
+                
+                <h3>Minha Jornada de Excelência Médica:</h3>
+                <ul>
+                    <li>Formada pela UERJ 1989</li>
+                    <li>Residência médica em pediatria HUPE-UERJ</li>
+                    <li>Título de especialista em Pediatria (SBP)</li>
+                    <li>Pós-graduada em alergologia e imunologia (UFRJ)</li>
+                    <li>Título de especialista em alergologia e imunologia (ASBAI)</li>
+                    <li>Mestre em Ciências da Saúde - FIOCRUZ 2002</li>
+                    <li>Ampla experiência em graduação e pós-graduação médica</li>
+                    <li>Professora adjunta do curso de medicina da Afya Unigranrio por 14 anos</li>
+                    <li>Ex-coordenadora das disciplinas de Habilidades e Atitudes Médicas e Sistemas Orgânicos Integrados</li>
+                    <li>Especialista em metodologias ativas e modelo OSCE</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dra. Maria Paula -->
+        <div class="professor-section reverse">
+    <div class="professor-content">
+        <h2>Dra. Maria Paula</h2>
+        <p>
+            Médica dermatologista com <span class="highlight">treinamento internacional</span> através do Observership em Dermatologia no renomado <span class="highlight">Johns Hopkins Hospital (EUA)</span>. Possuo ampla experiência em assistência médica, educação em saúde, pesquisa clínica e Medical Affairs.
+        </p>
+        <p>
+            Atuei como <span class="highlight">coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</span>, com foco em comunicação médico-paciente, ética, humanização e habilidades clínicas. Tenho sólida experiência docente, incluindo elaboração de conteúdo, condução de aulas práticas e avaliação de competências no ensino médico.
+        </p>
+        <p>
+            No setor privado, trabalhei em empresas como <span class="highlight">Biolab, Abbott</span> (com certificação internacional em Good Clinical Practice – ICH-GCP) e <span class="highlight">Fleury Medicina Diagnóstica</span>, exercendo funções de assessoria médica, suporte científico, interface com equipes técnicas e comunicação de resultados.
+        </p>
+        <p>
+            Participei do desenvolvimento de produtos dermocosméticos, além de iniciativas inovadoras em educação médica, como o projeto editorial <span class="highlight">"Revalida em Foco: Questões Comentadas, Certas e Erradas"</span> e o curso <span class="highlight">Revalida Expert</span>.
+        </p>
+        
+        <h3>Experiência e Qualificações:</h3>
+        <ul>
+            <li>Graduação em Medicina por instituição brasileira de excelência</li>
+            <li>Especialização em Dermatologia</li>
+            <li>Observership no Johns Hopkins Hospital (EUA)</li>
+            <li>Coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</li>
+            <li>Certificação Internacional ICH-GCP (Good Clinical Practice)</li>
+            <li>Experiência em Medical Affairs em empresas farmacêuticas</li>
+            <li>Atuação em Medicina Diagnóstica (Fleury)</li>
+            <li>Desenvolvimento de produtos dermocosméticos</li>
+            <li>Autora do projeto "Revalida em Foco: Questões Comentadas"</li>
+            <li>Cofundadora do curso Revalida Expert</li>
+        </ul>
+    </div>
+            <div class="professor-image-container">
+                <div class="professor-image">
+                   <img src="assets/8912fc56-fb53-4662-9bb4-728e2c18eeb1_removalai_preview.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário de Contato -->
+        <section class="contact-form-section" id="contato">
+            <h2>ENTRE EM CONTATO</h2>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome *</label>
+                        <input type="text" id="sobrenome" name="sobrenome" required placeholder="Seu sobrenome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem *</label>
+                    <textarea id="mensagem" name="mensagem" required placeholder="Escreva sua mensagem aqui..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Revalida Expert</h4>
+                <p>Preparação de excelência para médicos que buscam revalidação no Brasil.</p>
+                <p>Metodologia comprovada e professores especializados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>WhatsApp: +55 21 99107-5089</p>
+                <p>contato@revalidaexpert.com.br</p>
+                <p>instagram link</p>
+                <p>Rio de Janeiro, RJ</p>
+                <div class="social-links">
+                    <a href="https://wa.me/5521991075089" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+    <h4>Links Rápidos</h4>
+    <a href="inicio.html">Início</a>
+    <a href="sobren.html">Sobre Nós</a>
+    <a href="sobrel.html">Sobre o Livro</a>
+    <a href="sobrec.html">Sobre o Curso</a>
+    <a href="contato.html">Contato</a>
+</div>
+            <div class="footer-section">
+                <h4>Horário de Atendimento</h4>
+                <p>Segunda a Sexta: 9h às 18h</p>
+                <p>Sábado: 9h às 13h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Revalida Expert. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!mobileMenu || !hamburger) return;
+            
+            const isActive = mobileMenu.classList.contains('active');
+            
+            if (isActive) {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+            } else {
+                mobileMenu.style.display = 'flex';
+                setTimeout(() => {
+                    mobileMenu.classList.add('active');
+                    hamburger.classList.add('active');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const sobrenome = document.getElementById('sobrenome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            // Aqui você pode adicionar a lógica para enviar o formulário
+            // Por exemplo, enviar para um servidor ou integrar com um serviço de email
+            
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            
+            // Limpar o formulário
+            document.querySelector('.contact-form').reset();
+        }
+    </script>
+</body>
+</html>
