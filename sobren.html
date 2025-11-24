@@ -520,6 +520,55 @@
             font-size: 0.95rem;
         }
 
+        /* Animações para scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .professor-section .professor-image-container.animate-on-scroll {
+            transform: translateX(-100px);
+        }
+
+        .professor-section.reverse .professor-image-container.animate-on-scroll {
+            transform: translateX(100px);
+        }
+
+        .professor-section .professor-content.animate-on-scroll {
+            transform: translateX(100px);
+        }
+
+        .professor-section.reverse .professor-content.animate-on-scroll {
+            transform: translateX(-100px);
+        }
+
+        .professor-image-container.animate-on-scroll.slide-in,
+        .professor-content.animate-on-scroll.slide-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-form-section.animate-on-scroll {
+            transform: translateY(50px);
+        }
+
+        .contact-form-section.animate-on-scroll.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         .mobile-menu {
             display: none;
             position: fixed;
@@ -601,12 +650,16 @@
                 display: none !important;
             }
 
+            .nav-right {
+                gap: 1rem;
+            }
+
             nav {
-                padding: 1rem 1.5rem;
+                padding: 1rem 2rem;
             }
 
             .page-hero {
-                padding: 4rem 1.5rem 2rem;
+                padding: 4rem 2rem 2rem;
             }
 
             .page-hero h1 {
@@ -618,7 +671,88 @@
             }
 
             .content-section {
-                padding: 0 1.5rem;
+                padding: 0 2rem;
+            }
+
+            .professor-section {
+                margin: 4rem 0;
+            }
+
+            .professor-content {
+                padding: 2.5rem 2rem;
+            }
+
+            .professor-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .professor-content p {
+                font-size: 1.05rem;
+            }
+
+            .contact-form-section {
+                padding: 4rem 2rem;
+                margin: 4rem 0;
+            }
+
+            .contact-form-section h2 {
+                font-size: 2.5rem;
+            }
+
+            footer {
+                padding: 3rem 2rem 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .logo-placeholder {
+                width: 50px;
+                height: 50px;
+                font-size: 0.65rem;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .page-hero {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .page-hero p {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 0 1rem;
             }
 
             .professor-section {
@@ -626,33 +760,106 @@
             }
 
             .professor-content {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
             }
 
             .professor-content h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .professor-content h3 {
+                font-size: 1.3rem;
+                margin: 1.5rem 0 1rem;
+            }
+
+            .professor-content p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                margin-bottom: 1.2rem;
+            }
+
+            .professor-content li {
+                font-size: 0.9rem;
+                padding: 0.7rem 0;
+                padding-left: 1.8rem;
+            }
+
+            .professor-content li:before {
+                width: 22px;
+                height: 22px;
+                font-size: 0.75rem;
+                top: 0.7rem;
+            }
+
+            .professor-image {
+                border-radius: 20px;
             }
 
             .contact-form-section {
                 padding: 3rem 1.5rem;
                 margin: 3rem 0;
+                border-radius: 20px;
             }
 
             .contact-form-section h2 {
                 font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .form-group textarea {
+                min-height: 120px;
+            }
+
+            .submit-btn {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+                width: 100%;
             }
 
             footer {
-                padding: 2.5rem 1rem 1.5rem;
+                padding: 3rem 1rem 2rem;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-section h4 {
+                font-size: 1.3rem;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.9rem;
+            }
+
+            .footer-section a:hover {
+                transform: translateX(0);
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 360px) {
             .logo-placeholder {
                 width: 45px;
                 height: 45px;
@@ -664,47 +871,48 @@
             }
 
             .page-hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
 
             .page-hero p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             .professor-content {
-                padding: 1.5rem;
+                padding: 1.5rem 1rem;
             }
 
             .professor-content h2 {
                 font-size: 1.6rem;
             }
 
+            .professor-content h3 {
+                font-size: 1.2rem;
+            }
+
             .professor-content p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+            }
+
+            .professor-content li {
+                font-size: 0.85rem;
             }
 
             .contact-form-section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
             }
 
             .contact-form-section h2 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .submit-btn {
-                padding: 1.2rem 2rem;
-                font-size: 1rem;
-                width: 100%;
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
             }
 
-            .theme-toggle {
-                width: 38px;
-                height: 38px;
-            }
-
-            .theme-toggle svg {
-                width: 18px;
-                height: 18px;
+            .footer-section h4 {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -723,7 +931,7 @@
             <span></span>
         </button>
         <ul>
-            <li><a href="inicio.html">Início</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="sobren.html">Sobre Nós</a></li>
             <li><a href="sobrel.html">Sobre o Livro</a></li>
             <li><a href="sobrec.html">Sobre o Curso</a></li>
@@ -743,7 +951,7 @@
 
     <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="inicio.html" onclick="toggleMenu()">Início</a></li>
+        <li><a href="index.html" onclick="toggleMenu()">Início</a></li>
         <li><a href="sobren.html" onclick="toggleMenu()">Sobre Nós</a></li>
         <li><a href="sobrel.html" onclick="toggleMenu()">Sobre o Livro</a></li>
         <li><a href="sobrec.html" onclick="toggleMenu()">Sobre o Curso</a></li>
@@ -759,12 +967,12 @@
     <main class="content-section">
         <!-- Dra. Valéria Wakim -->
         <div class="professor-section">
-            <div class="professor-image-container">
+            <div class="professor-image-container animate-on-scroll">
                 <div class="professor-image">
                    <img src="assets/Foto valeria.png" alt="">
                 </div>
             </div>
-            <div class="professor-content">
+            <div class="professor-content animate-on-scroll">
                 <h2>Dra. Valéria Wakim</h2>
                 <p>
                     Sou a Dra. Valéria Wakim, pediatra e professora com 20 anos de experiência, e estou comprometida em ajudá-lo a alcançar seus objetivos. Com uma formação sólida e uma equipe dedicada, garanto que você esteja pronto para enfrentar o desafio da residência médica.
@@ -794,36 +1002,36 @@
 
         <!-- Dra. Maria Paula -->
         <div class="professor-section reverse">
-    <div class="professor-content">
-        <h2>Dra. Maria Paula</h2>
-        <p>
-            Médica dermatologista com <span class="highlight">treinamento internacional</span> através do Observership em Dermatologia no renomado <span class="highlight">Johns Hopkins Hospital (EUA)</span>. Possuo ampla experiência em assistência médica, educação em saúde, pesquisa clínica e Medical Affairs.
-        </p>
-        <p>
-            Atuei como <span class="highlight">coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</span>, com foco em comunicação médico-paciente, ética, humanização e habilidades clínicas. Tenho sólida experiência docente, incluindo elaboração de conteúdo, condução de aulas práticas e avaliação de competências no ensino médico.
-        </p>
-        <p>
-            No setor privado, trabalhei em empresas como <span class="highlight">Biolab, Abbott</span> (com certificação internacional em Good Clinical Practice – ICH-GCP) e <span class="highlight">Fleury Medicina Diagnóstica</span>, exercendo funções de assessoria médica, suporte científico, interface com equipes técnicas e comunicação de resultados.
-        </p>
-        <p>
-            Participei do desenvolvimento de produtos dermocosméticos, além de iniciativas inovadoras em educação médica, como o projeto editorial <span class="highlight">"Revalida em Foco: Questões Comentadas, Certas e Erradas"</span> e o curso <span class="highlight">Revalida Expert</span>.
-        </p>
-        
-        <h3>Experiência e Qualificações:</h3>
-        <ul>
-            <li>Graduação em Medicina por instituição brasileira de excelência</li>
-            <li>Especialização em Dermatologia</li>
-            <li>Observership no Johns Hopkins Hospital (EUA)</li>
-            <li>Coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</li>
-            <li>Certificação Internacional ICH-GCP (Good Clinical Practice)</li>
-            <li>Experiência em Medical Affairs em empresas farmacêuticas</li>
-            <li>Atuação em Medicina Diagnóstica (Fleury)</li>
-            <li>Desenvolvimento de produtos dermocosméticos</li>
-            <li>Autora do projeto "Revalida em Foco: Questões Comentadas"</li>
-            <li>Cofundadora do curso Revalida Expert</li>
-        </ul>
-    </div>
-            <div class="professor-image-container">
+            <div class="professor-content animate-on-scroll">
+                <h2>Dra. Maria Paula</h2>
+                <p>
+                    Médica dermatologista com <span class="highlight">treinamento internacional</span> através do Observership em Dermatologia no renomado <span class="highlight">Johns Hopkins Hospital (EUA)</span>. Possuo ampla experiência em assistência médica, educação em saúde, pesquisa clínica e Medical Affairs.
+                </p>
+                <p>
+                    Atuei como <span class="highlight">coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</span>, com foco em comunicação médico-paciente, ética, humanização e habilidades clínicas. Tenho sólida experiência docente, incluindo elaboração de conteúdo, condução de aulas práticas e avaliação de competências no ensino médico.
+                </p>
+                <p>
+                    No setor privado, trabalhei em empresas como <span class="highlight">Biolab, Abbott</span> (com certificação internacional em Good Clinical Practice – ICH-GCP) e <span class="highlight">Fleury Medicina Diagnóstica</span>, exercendo funções de assessoria médica, suporte científico, interface com equipes técnicas e comunicação de resultados.
+                </p>
+                <p>
+                    Participei do desenvolvimento de produtos dermocosméticos, além de iniciativas inovadoras em educação médica, como o projeto editorial <span class="highlight">"Revalida em Foco: Questões Comentadas, Certas e Erradas"</span> e o curso <span class="highlight">Revalida Expert</span>.
+                </p>
+                
+                <h3>Experiência e Qualificações:</h3>
+                <ul>
+                    <li>Graduação em Medicina por instituição brasileira de excelência</li>
+                    <li>Especialização em Dermatologia</li>
+                    <li>Observership no Johns Hopkins Hospital (EUA)</li>
+                    <li>Coordenadora do módulo HAM IV – Habilidades e Atitudes Médicas (Afya)</li>
+                    <li>Certificação Internacional ICH-GCP (Good Clinical Practice)</li>
+                    <li>Experiência em Medical Affairs em empresas farmacêuticas</li>
+                    <li>Atuação em Medicina Diagnóstica (Fleury)</li>
+                    <li>Desenvolvimento de produtos dermocosméticos</li>
+                    <li>Autora do projeto "Revalida em Foco: Questões Comentadas"</li>
+                    <li>Cofundadora do curso Revalida Expert</li>
+                </ul>
+            </div>
+            <div class="professor-image-container animate-on-scroll">
                 <div class="professor-image">
                    <img src="assets/8912fc56-fb53-4662-9bb4-728e2c18eeb1_removalai_preview.png" alt="">
                 </div>
@@ -831,7 +1039,7 @@
         </div>
 
         <!-- Formulário de Contato -->
-        <section class="contact-form-section" id="contato">
+        <section class="contact-form-section animate-on-scroll" id="contato">
             <h2>ENTRE EM CONTATO</h2>
             <form class="contact-form" onsubmit="handleSubmit(event)">
                 <div class="form-row">
@@ -868,7 +1076,6 @@
                 <h4>Contato</h4>
                 <p>WhatsApp: +55 21 99107-5089</p>
                 <p>contato@revalidaexpert.com.br</p>
-                <p>instagram link</p>
                 <p>Rio de Janeiro, RJ</p>
                 <div class="social-links">
                     <a href="https://wa.me/5521991075089" target="_blank" aria-label="WhatsApp">
@@ -885,7 +1092,7 @@
             </div>
             <div class="footer-section">
     <h4>Links Rápidos</h4>
-    <a href="inicio.html">Início</a>
+    <a href="index.html">Início</a>
     <a href="sobren.html">Sobre Nós</a>
     <a href="sobrel.html">Sobre o Livro</a>
     <a href="sobrec.html">Sobre o Curso</a>
@@ -918,6 +1125,30 @@
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         });
+
+        // Intersection Observer para animações
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('professor-image-container') || 
+                            entry.target.classList.contains('professor-content')) {
+                            entry.target.classList.add('slide-in');
+                        } else if (entry.target.classList.contains('contact-form-section')) {
+                            entry.target.classList.add('fade-in');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todos os elementos com animação
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
 
         // Mobile Menu Toggle
         function toggleMenu() {
