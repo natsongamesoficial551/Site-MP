@@ -361,6 +361,41 @@
             box-sizing: border-box;
         }
 
+        /* Animações para os cards */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .diagonal-content.animate-on-scroll {
+            transform: translateX(-100px);
+        }
+
+        .diagonal-content.animate-on-scroll.slide-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .image-container.animate-on-scroll {
+            transform: translateX(100px);
+        }
+
+        .image-container.animate-on-scroll.slide-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .course-card.animate-on-scroll,
+        .gallery-item.animate-on-scroll {
+            transform: translateY(50px);
+        }
+
+        .course-card.animate-on-scroll.fade-in,
+        .gallery-item.animate-on-scroll.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .diagonal-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -924,11 +959,16 @@
             .content-section {
                 padding: 0 2rem;
             }
+
+            .course-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2.5rem;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 5rem 1.5rem;
+                padding: 5rem 2rem;
             }
 
             .hero h1 {
@@ -943,7 +983,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 gap: 0;
-                padding: 1rem 1.5rem;
+                padding: 1rem 2rem;
             }
 
             .nav-right {
@@ -960,11 +1000,15 @@
             }
 
             .diagonal-content {
-                padding: 2rem;
+                padding: 2.5rem 2rem;
             }
 
             .diagonal-content h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .diagonal-content p {
+                font-size: 1.05rem;
             }
 
             .gallery-grid {
@@ -973,18 +1017,31 @@
 
             .course-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .course-card {
+                padding: 2.5rem 2rem;
             }
 
             .content-section {
-                padding: 0 1.5rem;
+                padding: 0 2rem;
             }
 
             .course-details-section {
-                padding: 4rem 1.5rem;
+                padding: 5rem 2rem;
+            }
+
+            .course-details-section h2 {
+                font-size: 2.5rem;
             }
 
             .investment-section {
-                padding: 4rem 1.5rem;
+                padding: 4rem 2rem;
+            }
+
+            .investment-section h3 {
+                font-size: 2.3rem;
             }
 
             .share-fab {
@@ -1021,34 +1078,35 @@
 
             .hero {
                 padding: 4rem 1rem;
+                margin-top: 80px;
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
                 margin-bottom: 1rem;
                 line-height: 1.2;
             }
 
             .hero p {
-                font-size: 0.95rem;
+                font-size: 1rem;
                 margin-bottom: 2rem;
                 padding: 0 0.5rem;
             }
 
             .cta-button {
-                padding: 1rem 2rem;
-                font-size: 0.95rem;
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
                 white-space: nowrap;
             }
 
             .logo-placeholder {
-                width: 45px;
-                height: 45px;
-                font-size: 0.6rem;
+                width: 50px;
+                height: 50px;
+                font-size: 0.65rem;
             }
 
             .logo-text {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             nav {
@@ -1076,39 +1134,40 @@
             }
 
             .theme-toggle {
-                width: 38px;
-                height: 38px;
+                width: 40px;
+                height: 40px;
                 flex-shrink: 0;
             }
 
             .theme-toggle svg {
-                width: 18px;
-                height: 18px;
+                width: 20px;
+                height: 20px;
             }
 
             .diagonal-section {
-                margin: 3rem 0;
+                margin: 4rem 0;
+                gap: 2.5rem;
             }
 
             .diagonal-content {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
                 transform: translateY(0);
             }
 
             .diagonal-content h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
                 margin-bottom: 1.2rem;
             }
 
             .diagonal-content p {
                 font-size: 0.95rem;
-                line-height: 1.6;
+                line-height: 1.7;
                 margin-bottom: 1rem;
             }
 
             .image-container {
                 transform: translateY(0);
-                margin: 0 -1rem;
+                margin: 0;
             }
 
             .luxury-image {
@@ -1131,90 +1190,91 @@
             }
 
             .course-details-section {
-                padding: 3rem 1rem;
-                margin: 3rem 0;
+                padding: 4rem 1rem;
+                margin: 4rem 0;
             }
 
             .course-details-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
             }
 
             .course-grid {
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .course-card {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
+                border-radius: 15px;
             }
 
             .course-card h3 {
-                font-size: 1.4rem;
-                margin-bottom: 1rem;
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
             }
 
             .course-card li {
-                font-size: 0.9rem;
-                padding: 0.7rem 0;
+                font-size: 0.95rem;
+                padding: 0.8rem 0;
                 gap: 0.8rem;
             }
 
             .course-card li:before {
-                width: 22px;
-                height: 22px;
+                width: 24px;
+                height: 24px;
                 font-size: 0.8rem;
             }
 
             .gallery-section {
-                margin: 3rem 0;
+                margin: 4rem 0;
             }
 
             .gallery-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
             }
 
             .gallery-grid {
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .investment-section {
-                padding: 2.5rem 1rem;
-                margin: 3rem 0;
+                padding: 3rem 1.5rem;
+                margin: 4rem 0;
                 border-radius: 20px;
             }
 
             .investment-section h3 {
-                font-size: 1.6rem;
-                margin-bottom: 0.8rem;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
                 line-height: 1.3;
             }
 
             .investment-section p {
-                font-size: 0.95rem;
+                font-size: 1rem;
                 margin-bottom: 0.8rem;
             }
 
             .price {
-                font-size: 1.8rem;
-                margin: 1.2rem 0;
+                font-size: 2rem;
+                margin: 1.5rem 0;
             }
 
             .plan-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-                margin-top: 1.2rem;
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+                margin-top: 1.5rem;
                 white-space: nowrap;
             }
 
             footer {
-                padding: 2.5rem 1rem 1.5rem;
-                margin-top: 3rem;
+                padding: 3rem 1rem 2rem;
+                margin-top: 4rem;
             }
 
             .footer-content {
-                gap: 2rem;
-                margin-bottom: 1.5rem;
+                gap: 2.5rem;
+                margin-bottom: 2rem;
                 grid-template-columns: 1fr;
             }
 
@@ -1223,14 +1283,14 @@
             }
 
             .footer-section h4 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 margin-bottom: 1rem;
             }
 
             .footer-section p,
             .footer-section a {
-                font-size: 0.85rem;
-                margin-bottom: 0.5rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.6rem;
             }
 
             .footer-section a:hover {
@@ -1238,8 +1298,8 @@
             }
 
             .footer-bottom {
-                padding-top: 1.2rem;
-                font-size: 0.8rem;
+                padding-top: 1.5rem;
+                font-size: 0.85rem;
             }
 
             .share-fab {
@@ -1248,32 +1308,32 @@
             }
 
             .share-btn {
-                width: 50px;
-                height: 50px;
+                width: 52px;
+                height: 52px;
             }
 
             .share-btn svg {
-                width: 22px;
-                height: 22px;
+                width: 24px;
+                height: 24px;
             }
 
             .share-menu {
                 bottom: 65px;
                 right: 0;
-                min-width: 170px;
-                padding: 0.7rem;
+                min-width: 180px;
+                padding: 0.8rem;
                 max-width: calc(100vw - 30px);
             }
 
             .share-menu-item {
-                padding: 10px 12px;
-                font-size: 0.85rem;
+                padding: 10px 14px;
+                font-size: 0.9rem;
                 gap: 10px;
             }
 
             .share-menu-item svg {
-                width: 20px;
-                height: 20px;
+                width: 22px;
+                height: 22px;
             }
 
             .copy-toast {
@@ -1282,17 +1342,21 @@
                 left: 15px;
                 text-align: center;
                 font-size: 0.85rem;
-                padding: 8px 12px;
+                padding: 10px 16px;
             }
 
             .content-section {
                 padding: 0 1rem;
             }
+
+            .social-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 360px) {
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .hero p {
@@ -1300,21 +1364,22 @@
             }
 
             .cta-button {
-                padding: 0.9rem 1.8rem;
-                font-size: 0.9rem;
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .logo-placeholder {
+                width: 45px;
+                height: 45px;
+                font-size: 0.6rem;
             }
 
             .logo-text {
-                font-size: 0.9rem;
-            }
-
-            nav a {
-                font-size: 0.7rem;
-                padding: 0.4rem 0.5rem;
+                font-size: 1rem;
             }
 
             .diagonal-content h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             .diagonal-content p {
@@ -1322,24 +1387,36 @@
             }
 
             .course-details-section h2 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
+            }
+
+            .course-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .course-card li {
+                font-size: 0.85rem;
+            }
+
+            .gallery-section h2 {
+                font-size: 1.7rem;
             }
 
             .investment-section h3 {
-                font-size: 1.5rem;
-            }
-
-            .price {
                 font-size: 1.6rem;
             }
 
+            .price {
+                font-size: 1.7rem;
+            }
+
             .plan-button {
-                padding: 0.9rem 1.8rem;
-                font-size: 0.95rem;
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
 
             .footer-section h4 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1396,7 +1473,7 @@
 
     <main class="content-section">
         <div class="diagonal-section">
-            <div class="diagonal-content">
+            <div class="diagonal-content animate-on-scroll">
                 <div class="decorative-circle circle-1"></div>
                 <h2>Preparação Completa para o REVALIDA</h2>
                 <p>
@@ -1410,7 +1487,7 @@
                     oferece a segurança e confiança necessárias para o sucesso no <span class="highlight">DIA DO EXAME</span>.
                 </p>
             </div>
-            <div class="image-container">
+            <div class="image-container animate-on-scroll">
                 <div class="luxury-image">
                     <img class="image-placeholder" src="assets/ChatGPT Image 22 de nov. de 2025, 20_04_59.png" alt="">
                 </div>
@@ -1418,7 +1495,7 @@
         </div>
 
         <div class="diagonal-section reverse" id="mentoria">
-            <div class="diagonal-content">
+            <div class="diagonal-content animate-on-scroll">
                 <div class="decorative-circle circle-2"></div>
                 <h2>Mentoria Individualizada</h2>
                 <p>
@@ -1431,7 +1508,7 @@
                     atenção individual e máximo aproveitamento.
                 </p>
             </div>
-            <div class="image-container">
+            <div class="image-container animate-on-scroll">
                 <div class="luxury-image">
                     <img class="image-placeholder" src="assets/WhatsApp Image 2025-11-22 at 10.16.30.jpeg" alt="">
                 </div>
@@ -1443,7 +1520,7 @@
         <div class="course-details-content">
             <h2>O QUE VOCÊ VAI ENCONTRAR</h2>
             <div class="course-grid">
-                <div class="course-card">
+                <div class="course-card animate-on-scroll">
                     <h3>Formato do Curso</h3>
                     <ul>
                         <li>3 dias de imersão total</li>
@@ -1453,7 +1530,7 @@
                         <li>Oficinas especializadas</li>
                     </ul>
                 </div>
-                <div class="course-card">
+                <div class="course-card animate-on-scroll">
                     <h3>Metodologia</h3>
                     <ul>
                         <li>Treinamento 100% voltado para OSCE</li>
@@ -1463,7 +1540,7 @@
                         <li>Revisão de habilidades essenciais</li>
                     </ul>
                 </div>
-                <div class="course-card">
+                <div class="course-card animate-on-scroll">
                     <h3>Diferenciais</h3>
                     <ul>
                         <li>Professores especialistas</li>
@@ -1480,17 +1557,17 @@
     <section class="gallery-section content-section">
         <h2>NOSSO MÉTODO EM AÇÃO</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
+            <div class="gallery-item animate-on-scroll">
                 <div class="luxury-image">
                     <img class="image-placeholder" src="assets/WhatsApp Image 2025-11-22 at 10.16.320.jpeg" alt="">
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item animate-on-scroll">
                 <div class="luxury-image">
                     <img class="image-placeholder" src="assets/WhatsApp Image 2025-11-22 at 10.16.330.jpeg" alt="">
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item animate-on-scroll">
                 <div class="luxury-image">
                     <img class="image-placeholder" src="assets/WhatsApp Image 2025-11-22 at 10.16.340.jpeg" alt="">
                 </div>
@@ -1563,154 +1640,178 @@
         <div class="share-menu" id="shareMenu">
             <button class="share-menu-item whatsapp" onclick="shareOnWhatsApp()">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-                WhatsApp
-            </button>
-            <button class="share-menu-item facebook" onclick="shareOnFacebook()">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                Facebook
-            </button>
-            <button class="share-menu-item twitter" onclick="shareOnTwitter()">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-                Twitter
-            </button>
-            <button class="share-menu-item linkedin" onclick="shareOnLinkedIn()">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                LinkedIn
-            </button>
-            <button class="share-menu-item copy" onclick="copyLink()">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                </svg>
-                Copiar Link
-            </button>
-        </div>
-    </div>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.8250 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+</svg>
+WhatsApp
+</button>
+<button class="share-menu-item facebook" onclick="shareOnFacebook()">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+</svg>
+Facebook
+</button>
+<button class="share-menu-item twitter" onclick="shareOnTwitter()">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+</svg>
+Twitter
+</button>
+<button class="share-menu-item linkedin" onclick="shareOnLinkedIn()">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+</svg>
+LinkedIn
+</button>
+<button class="share-menu-item copy" onclick="copyLink()">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+</svg>
+Copiar Link
+</button>
+</div>
+</div>
+<div class="copy-toast" id="copyToast">Link copiado!</div>
 
-    <div class="copy-toast" id="copyToast">Link copiado!</div>
+<script>
+    // Theme Toggle
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
 
-    <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+    // Load saved theme
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    });
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (!mobileMenu || !hamburger) return;
+        
+        const isActive = mobileMenu.classList.contains('active');
+        
+        if (isActive) {
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        } else {
+            mobileMenu.style.display = 'flex';
+            setTimeout(() => {
+                mobileMenu.classList.add('active');
+                hamburger.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
         }
+    }
 
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        });
-
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const hamburger = document.querySelector('.hamburger');
-            
-            if (!mobileMenu || !hamburger) return;
-            
-            const isActive = mobileMenu.classList.contains('active');
-            
-            if (isActive) {
-                mobileMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
+    // Close mobile menu when clicking on links
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 setTimeout(() => {
-                    mobileMenu.style.display = 'none';
-                }, 300);
-            } else {
-                mobileMenu.style.display = 'flex';
-                setTimeout(() => {
-                    mobileMenu.classList.add('active');
-                    hamburger.classList.add('active');
-                }, 10);
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Close mobile menu when clicking on links
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    setTimeout(() => {
-                        toggleMenu();
-                    }, 100);
-                });
+                    toggleMenu();
+                }, 100);
             });
         });
 
-        // Share Menu Toggle
-        function toggleShareMenu() {
-            const menu = document.getElementById('shareMenu');
-            menu.classList.toggle('active');
-        }
+        // Intersection Observer para animações
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Close share menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const shareFab = document.querySelector('.share-fab');
-            const shareMenu = document.getElementById('shareMenu');
-            
-            if (!shareFab.contains(event.target)) {
-                shareMenu.classList.remove('active');
-            }
-        });
-
-        // Get current page URL
-        function getCurrentUrl() {
-            return window.location.href;
-        }
-
-        // Share functions
-        function shareOnWhatsApp() {
-            const url = getCurrentUrl();
-            const text = 'Confira o Revalida Expert - Preparação de Excelência para a Prova Prática do REVALIDA!';
-            window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-        }
-
-        function shareOnFacebook() {
-            const url = getCurrentUrl();
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnTwitter() {
-            const url = getCurrentUrl();
-            const text = 'Confira o Revalida Expert - Preparação de Excelência para a Prova Prática do REVALIDA!';
-            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function shareOnLinkedIn() {
-            const url = getCurrentUrl();
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function copyLink() {
-            const url = getCurrentUrl();
-            navigator.clipboard.writeText(url).then(function() {
-                showToast();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('diagonal-content') || 
+                        entry.target.classList.contains('image-container')) {
+                        entry.target.classList.add('slide-in');
+                    } else if (entry.target.classList.contains('course-card') || 
+                               entry.target.classList.contains('gallery-item')) {
+                        entry.target.classList.add('fade-in');
+                    }
+                }
             });
-        }
+        }, observerOptions);
 
-        function showToast() {
-            const toast = document.getElementById('copyToast');
-            toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 3000);
+        // Observar todos os elementos com animação
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    });
+
+    // Share Menu Toggle
+    function toggleShareMenu() {
+        const menu = document.getElementById('shareMenu');
+        menu.classList.toggle('active');
+    }
+
+    // Close share menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const shareFab = document.querySelector('.share-fab');
+        const shareMenu = document.getElementById('shareMenu');
+        
+        if (!shareFab.contains(event.target)) {
+            shareMenu.classList.remove('active');
         }
-    </script>
+    });
+
+    // Get current page URL
+    function getCurrentUrl() {
+        return window.location.href;
+    }
+
+    // Share functions
+    function shareOnWhatsApp() {
+        const url = getCurrentUrl();
+        const text = 'Confira o Revalida Expert - Preparação de Excelência para a Prova Prática do REVALIDA!';
+        window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+    }
+
+    function shareOnFacebook() {
+        const url = getCurrentUrl();
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function shareOnTwitter() {
+        const url = getCurrentUrl();
+        const text = 'Confira o Revalida Expert - Preparação de Excelência para a Prova Prática do REVALIDA!';
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareOnLinkedIn() {
+        const url = getCurrentUrl();
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function copyLink() {
+        const url = getCurrentUrl();
+        navigator.clipboard.writeText(url).then(function() {
+            showToast();
+        });
+    }
+
+    function showToast() {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+</script>
 </body>
 </html>
