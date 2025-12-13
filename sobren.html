@@ -7,9 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Teko:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sobren.css">
-</head>
-<style>
+    <style>
     * {
     margin: 0;
     padding: 0;
@@ -576,6 +574,110 @@ nav a:hover {
     box-shadow: 0 10px 40px var(--shadow-color);
 }
 
+.share-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.share-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(38, 166, 154, 0.4);
+    transition: all 0.3s;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(38, 166, 154, 0.6);
+}
+
+.share-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.share-menu {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 10px 40px var(--shadow-color);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+}
+
+.share-menu.active {
+    display: flex;
+}
+
+.share-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+    text-align: left;
+}
+
+.share-menu-item:hover {
+    background: rgba(38, 166, 154, 0.1);
+}
+
+.share-menu-item svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.share-menu-item.whatsapp svg { fill: #25D366; }
+.share-menu-item.facebook svg { fill: #1877F2; }
+.share-menu-item.twitter svg { fill: #1DA1F2; }
+.share-menu-item.linkedin svg { fill: #0A66C2; }
+.share-menu-item.copy svg { fill: var(--accent-secondary); }
+
+.copy-toast {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--accent-secondary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 1001;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 footer {
     background: var(--footer-bg);
     color: white;
@@ -811,6 +913,23 @@ footer {
     .contact-section h2 {
         font-size: 2.5rem;
     }
+
+    .share-fab {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .share-btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    .copy-toast {
+        bottom: 90px;
+        right: 20px;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -913,6 +1032,28 @@ footer {
         width: 100%;
     }
 
+    .share-fab {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .share-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .share-menu {
+        bottom: 65px;
+        min-width: 180px;
+    }
+
+    .copy-toast {
+        bottom: 75px;
+        right: 15px;
+        left: 15px;
+        text-align: center;
+    }
+
     footer {
         padding: 3rem 1rem 2rem;
         margin-top: 4rem;
@@ -940,7 +1081,8 @@ footer {
         justify-content: center;
     }
 }
-</style>
+    </style>
+</head>
 <body>
     <header>
         <nav>
@@ -956,10 +1098,10 @@ footer {
                 </button>
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="sobren.html">Sobre Nós</a></li>
-                    <li><a href="sobrel.html">Sobre o Livro</a></li>
-                    <li><a href="sobrec.html">Sobre o Curso</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="sobren.html">Sobre</a></li>
+                    <li><a href="sobrel.html">Contato</a></li>
+                    <li><a href="sobrec.html">E-Book</a></li>
+                    <li><a href="contato.html">Compra</a></li>
                 </ul>
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
                     <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -976,21 +1118,21 @@ footer {
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="index.html" onclick="toggleMenu()">Início</a></li>
-            <li><a href="sobren.html" onclick="toggleMenu()">Sobre Nós</a></li>
-            <li><a href="sobrel.html" onclick="toggleMenu()">Sobre o Livro</a></li>
-            <li><a href="sobrec.html" onclick="toggleMenu()">Sobre o Curso</a></li>
-            <li><a href="contato.html" onclick="toggleMenu()">Contato</a></li>
-</ul>
-</div>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>CORPO CLÍNICO E COORDENADORAS DO CURSO</h1>
-        <p>Professores habilitados e experientes na metodologia de ensino, na prática OSCE de simulação</p>
+            <li><a href="sobren.html" onclick="toggleMenu()">Sobre</a></li>
+            <li><a href="sobrel.html" onclick="toggleMenu()">Contato</a></li>
+            <li><a href="sobrec.html" onclick="toggleMenu()">E-Book</a></li>
+            <li><a href="contato.html" onclick="toggleMenu()">Compra</a></li>
+        </ul>
     </div>
-</section>
 
-<main class="content-section">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CORPO CLÍNICO E COORDENADORAS DO CURSO</h1>
+            <p>Professores habilitados e experientes na metodologia de ensino, na prática OSCE de simulação</p>
+        </div>
+    </section>
+
+    <main class="content-section">
         <section class="professors-section">
             <!-- Dra. Valéria Wakim -->
             <div class="professor-card">
@@ -1001,7 +1143,15 @@ footer {
                     <h2>Dra. Valéria Leal Wakim</h2>
                     <p>Sou a Dra. Valéria Wakim, pediatra e professora com 20 anos de experiência, e estou comprometida em ajudá-lo a alcançar seus objetivos. Com uma formação sólida e uma equipe dedicada, garanto que você esteja pronto para enfrentar o desafio da residência médica.</p>
                     <p>Aqui você encontra uma proposta diferenciada de preparação, com métodos inovadores e uma equipe de profissionais dedicados a ajudar você a alcançar o seu objetivo. Bem-vindo ao nosso site de treinamento para estudantes de medicina!</p>
-                    <p>Formada em medicina pela Universidade Estadual do Rio de Janeiro (UERJ) e Residência médica em pediatria (HUPE- UERJ). Pós-graduada em Alergologia e Imunologia pela Universidade Federal do Rio de Janeiro (UFRJ). Título de especialista em Pediatria e em Alergologia e Imunologia emitidos pelas respectivas Sociedades de especialidade. Mestrado em Ciências da Saúde- FIOCRUZ RJ. Ampla experiência (20 anos) como professora de graduação médica desde os primeiros períodos da graduação até a Residência médica em Pediatria, tenho as habilidades acadêmicas para seu treinamento para a prova prática do REVALIDA e para acesso à residência médica que tanto espera!</p>
+                    <p>Formada em medicina pela Universidade Estadual do Rio de Janeiro (UERJ) e Residência médica em pediatria (HUPE- UERJ). Pós-graduada em Alergologia e Imunologia pela Universidade Federal do Rio de Janeiro (UFRJ). Título de especialista em Pediatria e em Alergologia e Imunologia emitidos pelas respectivas Sociedades de especialidade. Tenho as habilidades acadêmicas e a experiência profissional para seu treinamento para a prova prática do REVALIDA e para acesso à residência médica que tanto espera!</p>
+                    <p style="margin-top: 1.5rem;">
+                        <a href="https://www.youtube.com/watch?v=_wRPRuqw86U&t=79s" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(38, 166, 154, 0.3);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            Ouça meu podcast
+                        </a>
+                    </p>
                     <h3 style="font-family: 'Teko', serif; color: var(--accent-secondary); font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem;">Minha Jornada de Excelência Médica:</h3>
                     <ul>
                         <li>Formada pela UERJ 1989</li>
@@ -1073,8 +1223,50 @@ footer {
         </section>
 
         <!-- Imagem de Especialidades Médicas -->
-        <img src="assets/especialidades-medicas.jpg" alt="Especialidades Médicas: Cirurgia Geral e Emergência, Pediatria, Clínica Médica e Saúde da Família, Ginecologia e Obstetrícia" class="medical-specialties-image">
+        <img src="assets/especialidades medicas.jpeg" alt="Especialidades Médicas: Cirurgia Geral e Emergência, Pediatria, Clínica Médica e Saúde da Família, Ginecologia e Obstetrícia" class="medical-specialties-image">
     </main>
+
+    <!-- Botão de Compartilhamento -->
+    <div class="share-fab">
+        <button class="share-btn" onclick="toggleShareMenu()" aria-label="Compartilhar">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+        </button>
+        <div class="share-menu" id="shareMenu">
+            <button class="share-menu-item whatsapp" onclick="shareOnWhatsApp()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp
+            </button>
+            <button class="share-menu-item facebook" onclick="shareOnFacebook()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+            </button>
+            <button class="share-menu-item twitter" onclick="shareOnTwitter()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+                Twitter
+            </button>
+            <button class="share-menu-item linkedin" onclick="shareOnLinkedIn()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+            </button>
+            <button class="share-menu-item copy" onclick="copyLink()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+                Copiar Link
+            </button>
+        </div>
+    </div>
+    <div class="copy-toast" id="copyToast">Link copiado!</div>
 
     <footer>
         <div class="footer-content">
@@ -1120,8 +1312,8 @@ footer {
             <p>&copy; 2025 Revalida Expert. Todos os direitos reservados.</p>
         </div>
     </footer>
+
     <script>
-        // Theme Toggle
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -1130,13 +1322,6 @@ function toggleTheme() {
     localStorage.setItem('theme', newTheme);
 }
 
-// Load saved theme
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-});
-
-// Mobile Menu Toggle
 function toggleMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
@@ -1162,8 +1347,56 @@ function toggleMenu() {
     }
 }
 
-// Close mobile menu when clicking on links
+function toggleShareMenu() {
+    const menu = document.getElementById('shareMenu');
+    menu.classList.toggle('active');
+}
+
+function getCurrentUrl() {
+    return window.location.href;
+}
+
+function shareOnWhatsApp() {
+    const url = getCurrentUrl();
+    const text = 'Confira o Revalida Expert - Conheça nossa equipe de professores especializados!';
+    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+}
+
+function shareOnFacebook() {
+    const url = getCurrentUrl();
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+}
+
+function shareOnTwitter() {
+    const url = getCurrentUrl();
+    const text = 'Confira o Revalida Expert - Conheça nossa equipe de professores especializados!';
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function shareOnLinkedIn() {
+    const url = getCurrentUrl();
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+}
+
+function copyLink() {
+    const url = getCurrentUrl();
+    navigator.clipboard.writeText(url).then(function() {
+        showToast();
+    });
+}
+
+function showToast() {
+    const toast = document.getElementById('copyToast');
+    toast.classList.add('show');
+    setTimeout(function() {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -1173,7 +1406,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Intersection Observer para animações dos cards das professoras
     const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
@@ -1187,21 +1419,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observar todos os cards das professoras
     document.querySelectorAll('.professor-card').forEach(card => {
         observer.observe(card);
     });
-});
 
-// Form Submission Handler
-document.addEventListener('DOMContentLoaded', function() {
+    // Fechar menu de compartilhamento ao clicar fora
+    document.addEventListener('click', function(event) {
+        const shareFab = document.querySelector('.share-fab');
+        const shareMenu = document.getElementById('shareMenu');
+        if (!shareFab.contains(event.target)) {
+            shareMenu.classList.remove('active');
+        }
+    });
+
+    // Form submission
     const contactForm = document.getElementById('contactForm');
-    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Coletar dados do formulário
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -1209,11 +1445,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: document.getElementById('message').value
             };
             
-            // Aqui você pode adicionar a lógica para enviar os dados
-            // Por exemplo, usando fetch para enviar para um servidor
-            console.log('Dados do formulário:', formData);
-            
-            // Criar mensagem para WhatsApp
             const whatsappMessage = `
 *Nova mensagem do site Revalida Expert*
 
@@ -1222,221 +1453,36 @@ document.addEventListener('DOMContentLoaded', function() {
 *Mensagem:* ${formData.message}
             `.trim();
             
-            // Número de WhatsApp (substitua pelo número correto)
             const whatsappNumber = '5521991075089';
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
             
-            // Abrir WhatsApp
             window.open(whatsappUrl, '_blank');
-            
-            // Limpar formulário
             contactForm.reset();
             
-            // Mostrar mensagem de sucesso (opcional)
-            showSuccessMessage();
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+                color: white;
+                padding: 2rem 3rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+                z-index: 10000;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: 600;
+            `;
+            successDiv.textContent = 'Mensagem enviada com sucesso!';
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 3000);
         });
     }
-});
-
-// Função para mostrar mensagem de sucesso
-function showSuccessMessage() {
-    // Criar elemento de mensagem
-    const successDiv = document.createElement('div');
-    successDiv.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
-        color: white;
-        padding: 2rem 3rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        z-index: 10000;
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: 600;
-        animation: fadeInOut 3s ease-in-out;
-    `;
-    successDiv.textContent = 'Mensagem enviada com sucesso!';
-    
-    // Adicionar animação
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-            15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Adicionar ao body
-    document.body.appendChild(successDiv);
-    
-    // Remover após 3 segundos
-    setTimeout(() => {
-        successDiv.remove();
-        style.remove();
-    }, 3000);
-}
-
-// Validação de email em tempo real
-document.addEventListener('DOMContentLoaded', function() {
-    const emailInput = document.getElementById('email');
-    
-    if (emailInput) {
-        emailInput.addEventListener('blur', function() {
-            const email = this.value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (email && !emailRegex.test(email)) {
-                this.style.borderColor = '#ff6b6b';
-                
-                // Remover mensagem de erro anterior se existir
-                const existingError = this.parentElement.querySelector('.error-message');
-                if (existingError) {
-                    existingError.remove();
-                }
-                
-                // Adicionar mensagem de erro
-                const errorMsg = document.createElement('span');
-                errorMsg.className = 'error-message';
-                errorMsg.style.cssText = `
-                    color: #ff6b6b;
-                    font-size: 0.9rem;
-                    margin-top: 0.3rem;
-                    display: block;
-                `;
-                errorMsg.textContent = 'Por favor, insira um email válido';
-                this.parentElement.appendChild(errorMsg);
-            } else {
-                this.style.borderColor = '';
-                const existingError = this.parentElement.querySelector('.error-message');
-                if (existingError) {
-                    existingError.remove();
-                }
-            }
-        });
-    }
-});
-
-// Smooth scroll para links internos
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-});
-
-// Animação de entrada para os campos do formulário
-document.addEventListener('DOMContentLoaded', function() {
-    const formGroups = document.querySelectorAll('.form-group');
-    
-    const formObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-    
-    formGroups.forEach(group => {
-        group.style.opacity = '0';
-        group.style.transform = 'translateY(20px)';
-        group.style.transition = 'all 0.5s ease';
-        formObserver.observe(group);
-    });
-});
-
-// Prevenção de spam no formulário
-let lastSubmitTime = 0;
-const SUBMIT_COOLDOWN = 5000; // 5 segundos
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            const currentTime = Date.now();
-            
-            if (currentTime - lastSubmitTime < SUBMIT_COOLDOWN) {
-                e.preventDefault();
-                alert('Por favor, aguarde alguns segundos antes de enviar outra mensagem.');
-                return false;
-            }
-            
-            lastSubmitTime = currentTime;
-        });
-    }
-});
-
-// Contador de caracteres para o campo de mensagem
-document.addEventListener('DOMContentLoaded', function() {
-    const messageTextarea = document.getElementById('message');
-    const maxLength = 1000;
-    
-    if (messageTextarea) {
-        // Criar contador
-        const counter = document.createElement('div');
-        counter.style.cssText = `
-            text-align: right;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        `;
-        messageTextarea.parentElement.appendChild(counter);
-        
-        // Atualizar contador
-        function updateCounter() {
-            const remaining = maxLength - messageTextarea.value.length;
-            counter.textContent = `${messageTextarea.value.length}/${maxLength} caracteres`;
-            
-            if (remaining < 100) {
-                counter.style.color = '#ff6b6b';
-            } else {
-                counter.style.color = 'rgba(255, 255, 255, 0.7)';
-            }
-        }
-        
-        messageTextarea.setAttribute('maxlength', maxLength);
-        messageTextarea.addEventListener('input', updateCounter);
-        updateCounter();
-    }
-});
-
-// Adicionar efeito de hover nos cards das professoras
-document.addEventListener('DOMContentLoaded', function() {
-    const professorCards = document.querySelectorAll('.professor-card');
-    
-    professorCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
 });
     </script>
 </body>
