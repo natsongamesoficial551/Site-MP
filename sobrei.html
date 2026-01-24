@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Revalida Expert</title>
+    <title>Investimento - Revalida Expert</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Teko:wght@300..700&display=swap" rel="stylesheet">
@@ -340,232 +340,187 @@
         box-sizing: border-box;
     }
 
-    .contact-container {
-        margin: 6rem 0;
+    .pricing-section {
+        margin: 6rem auto;
+        max-width: 900px;
     }
 
-    .contact-form-section {
-        background: var(--hero-gradient);
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(26, 95, 122, 0.3);
-        position: relative;
-        overflow: hidden;
+    .pricing-intro {
+        text-align: center;
+        margin-bottom: 4rem;
     }
 
-    .contact-form-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: pulse 4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-
-    .form-content {
-        position: relative;
-        z-index: 1;
-    }
-
-    .contact-form-section h2 {
+    .pricing-intro h2 {
         font-family: 'Teko', serif;
-        color: white;
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
+        color: var(--accent-primary);
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
         font-weight: 700;
         letter-spacing: 2px;
     }
 
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+    .pricing-intro p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
     }
 
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .form-group label {
-        color: white;
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 1rem 1.5rem;
-        border: 2px solid rgba(255,255,255,0.2);
-        border-radius: 12px;
-        font-size: 1rem;
-        font-family: inherit;
-        background: rgba(255,255,255,0.1);
-        color: white;
-        transition: all 0.3s;
-        backdrop-filter: blur(10px);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        color: rgba(255,255,255,0.6);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        outline: none;
-        border-color: var(--accent-secondary);
-        background: rgba(255,255,255,0.15);
-    }
-
-    .form-group textarea {
-        resize: vertical;
-        min-height: 150px;
-    }
-
-    .form-group select {
-        cursor: pointer;
-    }
-
-    .form-group select option {
+    .pricing-card {
         background: var(--bg-secondary);
-        color: var(--text-primary);
+        border-radius: 30px;
+        padding: 4rem 3.5rem;
+        box-shadow: 0 20px 60px var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+        border: 3px solid var(--accent-secondary);
     }
 
-    .submit-btn {
+    .pricing-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+    }
+
+    .featured-badge {
         background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
         color: white;
-        padding: 1.3rem 3rem;
-        border: none;
+        padding: 0.6rem 2rem;
         border-radius: 50px;
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 700;
-        cursor: pointer;
-        transition: all 0.4s;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 8px 25px rgba(38, 166, 154, 0.4);
-        align-self: center;
+        letter-spacing: 1.5px;
+        display: inline-block;
+        margin-bottom: 2rem;
+        box-shadow: 0 6px 20px rgba(38, 166, 154, 0.4);
     }
 
-    .submit-btn:hover {
-        background: linear-gradient(135deg, #1d8b80 0%, #26a69a 100%);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(38, 166, 154, 0.6);
+    .plan-name {
+        font-family: 'Teko', serif;
+        color: var(--accent-primary);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+        letter-spacing: 2px;
     }
 
-    .social-section {
-        background: var(--bg-secondary);
-        padding: 4rem 3rem;
+    .plan-duration {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+    }
+
+    .plan-price {
+        margin: 3rem 0;
+        padding: 2.5rem;
+        background: linear-gradient(135deg, rgba(26, 166, 154, 0.1) 0%, rgba(26, 95, 122, 0.1) 100%);
         border-radius: 20px;
-        box-shadow: 0 10px 40px var(--shadow-color);
-        margin: 4rem 0;
         text-align: center;
     }
 
-    .social-section h2 {
+    .price-amount {
+        font-family: 'Teko', serif;
+        font-size: 4rem;
+        color: var(--accent-primary);
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-installments {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-top: 1rem;
+    }
+
+    .course-structure {
+        margin: 3rem 0;
+    }
+
+    .course-structure h3 {
         font-family: 'Teko', serif;
         color: var(--accent-primary);
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .day-section {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid var(--accent-secondary);
+    }
+
+    .day-section h4 {
+        font-family: 'Teko', serif;
+        color: var(--accent-secondary);
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
         font-weight: 700;
     }
 
-    .social-section p {
+    .day-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .day-section li {
+        padding: 0.7rem 0;
+        padding-left: 2rem;
+        position: relative;
+        font-size: 1.05rem;
         color: var(--text-secondary);
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-    .social-links-large {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .social-link-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 2rem;
-        background: var(--bg-primary);
-        border-radius: 15px;
-        transition: all 0.3s;
-        text-decoration: none;
-        color: var(--text-primary);
-        min-width: 180px;
-    }
-
-    .social-link-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px var(--shadow-color);
-    }
-
-    .social-link-icon {
-        width: 70px;
-        height: 70px;
+    .day-section li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+        color: white;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s;
+        font-weight: bold;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(38, 166, 154, 0.3);
     }
 
-    .social-link-card:hover .social-link-icon {
-        transform: scale(1.1);
+    .plan-button {
+        width: 100%;
+        background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
+        color: white;
+        padding: 1.5rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 10px 30px rgba(38, 166, 154, 0.4);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        margin-top: 2rem;
     }
 
-    .whatsapp-icon {
-        background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    }
-
-    .email-icon {
-        background: linear-gradient(135deg, #EA4335 0%, #c5362c 100%);
-        box-shadow: 0 8px 25px rgba(234, 67, 53, 0.4);
-    }
-
-    .instagram-icon {
-        background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%);
-        box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
-    }
-
-    .social-link-icon svg {
-        width: 35px;
-        height: 35px;
-        fill: white;
-    }
-
-    .social-link-card h3 {
-        font-family: 'Teko', serif;
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-
-    .social-link-card p {
-        font-size: 0.95rem;
-        margin: 0;
+    .plan-button:hover {
+        background: linear-gradient(135deg, #1d8b80 0%, #26a69a 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(38, 166, 154, 0.6);
     }
 
     .share-fab {
@@ -755,16 +710,6 @@
         margin: 0 auto;
     }
 
-    @media (max-width: 1024px) {
-        .contact-container {
-            margin: 4rem 0;
-        }
-
-        .social-links-large {
-            gap: 1.5rem;
-        }
-    }
-
     @media (max-width: 768px) {
         .hero {
             padding: 5rem 1.5rem 3rem;
@@ -803,26 +748,24 @@
             padding: 0 1.5rem;
         }
 
-        .contact-container {
-            margin: 4rem 0;
+        .pricing-section {
+            margin: 4rem auto;
         }
 
-        .contact-form-section {
-            padding: 2.5rem 2rem;
+        .pricing-intro h2 {
+            font-size: 2.3rem;
         }
 
-        .form-row {
-            grid-template-columns: 1fr;
+        .pricing-card {
+            padding: 3rem 2rem;
         }
 
-        .social-links-large {
-            flex-direction: column;
-            align-items: center;
+        .plan-name {
+            font-size: 2.5rem;
         }
 
-        .social-link-card {
-            width: 100%;
-            max-width: 300px;
+        .price-amount {
+            font-size: 3rem;
         }
 
         .share-fab {
@@ -877,34 +820,37 @@
             padding: 0 1rem;
         }
 
-        .contact-container {
-            margin: 3rem 0;
+        .pricing-section {
+            margin: 3rem auto;
         }
 
-        .contact-form-section,
-        .social-section {
-            padding: 2rem 1.5rem;
-        }
-
-        .contact-form-section h2,
-        .social-section h2 {
+        .pricing-intro h2 {
             font-size: 2rem;
         }
 
-        .submit-btn {
-            padding: 1.2rem 2.5rem;
-            font-size: 1.05rem;
-            width: 100%;
+        .pricing-card {
+            padding: 2rem 1.5rem;
         }
 
-        .social-link-icon {
-            width: 60px;
-            height: 60px;
+        .plan-name {
+            font-size: 2rem;
         }
 
-        .social-link-icon svg {
-            width: 30px;
-            height: 30px;
+        .price-amount {
+            font-size: 2.5rem;
+        }
+
+        .plan-button {
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .day-section {
+            padding: 1.5rem;
+        }
+
+        .day-section h4 {
+            font-size: 1.4rem;
         }
 
         footer {
@@ -1000,99 +946,128 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>ENTRE EM CONTATO</h1>
-            <p>Estamos prontos para ajudá-lo em sua jornada rumo à aprovação para a Prova Prática do REVALIDA</p>
+            <h1>INVESTIMENTO NO SEU FUTURO</h1>
+            <p>Prepare-se com o melhor treinamento para o REVALIDA</p>
         </div>
     </section>
 
     <main class="content-section">
-        <div class="contact-container">
-            <!-- Formulário de Contato -->
-            <div class="contact-form-section" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; width: 100%;">
-                <div class="form-content">
-                    <h2>ENVIE SUA MENSAGEM</h2>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">Nome</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="Seu nome" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Sobrenome</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefone</label>
-                                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Selecione um assunto</option>
-                                <option value="curso">Informações sobre o Curso</option>
-                                <option value="investimento">Investimento e Pagamento</option>
-                                <option value="duvidas">Dúvidas Gerais</option>
-                                <option value="suporte">Suporte</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                    </form>
-                </div>
+        <section class="pricing-section">
+            <div class="pricing-intro">
+                <h2>NOSSO PLANO COMPLETO</h2>
+                <p>3 dias de imersão total com pré-curso e treinamento intensivo OSCE</p>
             </div>
-        </div>
 
-        <!-- Seção de Redes Sociais -->
-        <section class="social-section">
-            <h2>CONECTE-SE CONOSCO</h2>
-            <p>Acompanhe nossas redes sociais para receber dicas exclusivas, conteúdos informativos e novidades sobre o REVALIDA</p>
-            
-            <div class="social-links-large">
-                <a href="https://wa.me/5521991075089" class="social-link-card" target="_blank">
-                    <div class="social-link-icon whatsapp-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                    </div>
-                    <h3>WhatsApp</h3>
-                    <p>Chat direto</p>
-                </a>
+            <div class="pricing-card">
+                <span class="featured-badge">✓ Programa Completo</span>
+                <div class="plan-name">REVALIDA EXPERT</div>
+                <div class="plan-duration">3 Dias de Treinamento Completo</div>
+                
+                <div class="plan-price">
+                    <div class="price-amount">10x R$ 479</div>
+                    <div class="price-installments">ou R$ 4.790,00 à vista</div>
+                </div>
 
-                <a href="mailto:contato@revalidaexpert.com.br" class="social-link-card">
-                    <div class="social-link-icon email-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
+                <div class="course-structure">
+                    <h3>ESTRUTURA DO CURSO</h3>
+                    
+                    <div class="day-section">
+                        <h4>DIA 1 - PRÉ-CURSO</h4>
+                        <ul>
+                            <li>Revisão completa de Eletrocardiograma</li>
+                            <li>Interpretação de traçados eletrocardiográficos</li>
+                            <li>Principais arritmias e alterações</li>
+                            <li>ATLS - Advanced Trauma Life Support</li>
+                            <li>Protocolos de atendimento ao trauma</li>
+                            <li>Priorização no trauma</li>
+                            <li>Material didático exclusivo</li>
+                        </ul>
                     </div>
-                    <h3>Email</h3>
-                    <p>Suporte completo</p>
-                </a>
 
-                <a href="https://instagram.com" class="social-link-card" target="_blank">
-                    <div class="social-link-icon instagram-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                        </svg>
+                    <div class="day-section">
+                        <h4>DIAS 2 E 3 - TREINAMENTO INTENSIVO OSCE</h4>
+                        <ul>
+                            <li>16 horas de prática intensiva</li>
+                            <li>Estações com casos reais simulados</li>
+                            <li>Atores profissionais nas simulações</li>
+                            <li>Feedback individual especializado</li>
+                            <li>Treinamento nas 4 áreas principais do REVALIDA</li>
+                            <li>Cirurgia Geral e Emergência</li>
+                            <li>Pediatria</li>
+                            <li>Clínica Médica e Saúde da Família</li>
+                            <li>Ginecologia e Obstetrícia</li>
+                            <li>Oficinas de habilidades essenciais</li>
+                            <li>Dicas estratégicas para pontuar mais</li>
+                        </ul>
                     </div>
-                    <h3>Instagram</h3>
-                    <p>Novidades diárias</p>
-                </a>
+                </div>
+
+                <div class="course-structure">
+                    <h3>O QUE ESTÁ INCLUSO</h3>
+                    <div class="day-section">
+                        <h4>DIFERENCIAIS</h4>
+                        <ul>
+                            <li>Professores especialistas em OSCE</li>
+                            <li>Turmas reduzidas para melhor aproveitamento</li>
+                            <li>Material didático completo</li>
+                            <li>Apostilas de ECG e ATLS</li>
+                            <li>Certificado de 24 horas</li>
+                            <li>Acesso ao grupo exclusivo de alunos</li>
+                            <li>Coffee break nos 3 dias</li>
+                            <li>Bônus: Dicas de ouro para o dia do exame</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/5521991075089?text=Olá!%20Gostaria%20de%20garantir%20minha%20vaga%20no%20curso%20REVALIDA%20EXPERT%20(3%20dias)" class="plan-button" target="_blank">Garantir Minha Vaga Agora</a>
             </div>
         </section>
     </main>
 
-    <!-- Botão de Compartilhamento -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Revalida Expert</h4>
+                <p>Preparação de excelência para médicos que buscam revalidação no Brasil.</p>
+                <p>Metodologia comprovada e professores especializados.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>WhatsApp: +55 21 99107-5089</p>
+                <p>contato@revalidaexpert.com.br</p>
+                <p>Rio de Janeiro, RJ</p>
+                <div class="social-links">
+                    <a href="https://wa.me/5521991075089" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <a href="index.html">Início</a>
+                <a href="sobren.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+                <a href="sobrei.html">Planos</a>
+            </div>
+            <div class="footer-section">
+                <h4>Horário de Atendimento</h4>
+                <p>Segunda a Sexta: 9h às 18h</p>
+                <p>Sábado: 9h às 13h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Revalida Expert. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <div class="share-fab">
         <button class="share-btn" onclick="toggleShareMenu()" aria-label="Compartilhar">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1133,51 +1108,6 @@
         </div>
     </div>
     <div class="copy-toast" id="copyToast">Link copiado!</div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Revalida Expert</h4>
-                <p>Preparação de excelência para médicos que buscam revalidação no Brasil.</p>
-                <p>Metodologia comprovada e professores especializados.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contato</h4>
-                <p>WhatsApp: +55 21 99107-5089</p>
-                <p>contato@revalidaexpert.com.br</p>
-                <p>Rio de Janeiro, RJ</p>
-                <div class="social-links">
-                    <a href="https://wa.me/5521991075089" target="_blank" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Links Rápidos</h4>
-                <a href="index.html">Início</a>
-                <a href="sobren.html">Sobre Nós</a>
-                <a href="contato.html">Contato</a>
-                <a href="sobrei.html">Planos</a>
-                
-            </div>
-            <div class="footer-section">
-                <h4>Horário de Atendimento</h4>
-                <p>Segunda a Sexta: 9h às 18h</p>
-                <p>Sábado: 9h às 13h</p>
-                <p>Domingo: Fechado</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Revalida Expert. Todos os direitos reservados.</p>
-        </div>
-    </footer>
 
     <script>
 function toggleTheme() {
@@ -1224,7 +1154,7 @@ function getCurrentUrl() {
 
 function shareOnWhatsApp() {
     const url = getCurrentUrl();
-    const text = 'Confira o Revalida Expert - Entre em contato conosco!';
+    const text = 'Confira o curso completo Revalida Expert - 3 dias de treinamento intensivo!';
     window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
 }
 
@@ -1235,7 +1165,7 @@ function shareOnFacebook() {
 
 function shareOnTwitter() {
     const url = getCurrentUrl();
-    const text = 'Confira o Revalida Expert - Entre em contato conosco!';
+    const text = 'Confira o curso completo Revalida Expert - 3 dias de treinamento intensivo!';
     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
 }
 
@@ -1279,65 +1209,6 @@ document.addEventListener('DOMContentLoaded', function() {
             shareMenu.classList.remove('active');
         }
     });
-
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            const subjectText = document.getElementById('subject').selectedOptions[0].text;
-            
-            const whatsappMessage = `
-*Nova mensagem do site Revalida Expert*
-
-*Nome:* ${formData.firstName} ${formData.lastName}
-*Email:* ${formData.email}
-*Telefone:* ${formData.phone}
-*Assunto:* ${subjectText}
-
-*Mensagem:*
-${formData.message}
-            `.trim();
-            
-            const whatsappNumber = '5521991075089';
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-            
-            window.open(whatsappUrl, '_blank');
-            contactForm.reset();
-            
-            const successDiv = document.createElement('div');
-            successDiv.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: linear-gradient(135deg, #26a69a 0%, #1d8b80 100%);
-                color: white;
-                padding: 2rem 3rem;
-                border-radius: 15px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-                z-index: 10000;
-                text-align: center;
-                font-size: 1.2rem;
-                font-weight: 600;
-            `;
-            successDiv.textContent = 'Redirecionando para o WhatsApp...';
-            document.body.appendChild(successDiv);
-            
-            setTimeout(() => {
-                successDiv.remove();
-            }, 3000);
-        });
-    }
 });
     </script>
 </body>
